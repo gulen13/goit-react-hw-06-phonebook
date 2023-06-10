@@ -8,7 +8,7 @@ const ContactForm = ({ formSubmit }) => {
 
   const handleContactSave = e => {
     e.preventDefault();
-    formSubmit(name, number);
+    formSubmit(name, Number(number));
     setname('');
     setnumber('');
   };
@@ -20,7 +20,7 @@ const ContactForm = ({ formSubmit }) => {
         setname(value);
         break;
       case 'number':
-        setnumber(value);
+        setnumber(Number(value));
         break;
       default:
         return;
@@ -35,7 +35,6 @@ const ContactForm = ({ formSubmit }) => {
           type="text"
           name="name"
           value={name}
-          pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
           placeholder="Jacob Mercer"
           required
@@ -48,7 +47,6 @@ const ContactForm = ({ formSubmit }) => {
           type="tel"
           name="number"
           value={number}
-          pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
           placeholder="+380675006070"
           required
