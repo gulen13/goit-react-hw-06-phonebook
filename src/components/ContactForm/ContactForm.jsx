@@ -5,8 +5,8 @@ import { selectPhones } from 'redux/selector';
 import { useState } from 'react';
 
 const ContactForm = () => {
-  const [name, setname] = useState('');
-  const [number, setnumber] = useState('');
+  const [name, setName] = useState('');
+  const [number, setNumber] = useState('');
   const dispatch = useDispatch();
   const phones = useSelector(selectPhones);
 
@@ -24,18 +24,18 @@ const ContactForm = () => {
     }
 
     dispatch(addPhone(name, Number(number)));
-    const form = event.target;
-    form.reset();
+    setName('');
+    setNumber('');
   };
 
   const handleChange = event => {
     const { name, value } = event.target;
     switch (name) {
       case 'name':
-        setname(value);
+        setName(value);
         break;
       case 'number':
-        setnumber(value);
+        setNumber(value);
         break;
       default:
         return;
